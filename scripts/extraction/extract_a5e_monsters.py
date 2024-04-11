@@ -1,5 +1,6 @@
 import json
 import re
+
 from pdfminer.high_level import extract_text
 
 
@@ -57,7 +58,7 @@ regex = re.compile(r"^(?P<name>[\w ]+) CHALLENGE (?P<challenge_rating>[\d/]+) "
                    r"STR DEX CON INT WIS CHA (?P<strength>\d+) ?\([+-]\d+\) ?(?P<dexterity>\d+) ?\([+-]\d+\) ?(?P<constitution>\d+) ?\([+-]\d+\) ?(?P<intelligence>\d+) ?\([+-]\d+\) ?(?P<wisdom>\d+) ?\([+-]\d+\) ?(?P<charisma>\d+) ?\([+-]\d+\) "
                    r"(Proficiency \+(?P<proficiency>\d+); Maneuver DC (?P<maneuver_dc>\d+) )?"
                    r"(?P<has_saving_throws>Saving Throws )?(Str \+(?P<saving_throw_str>\d+),? )?(Dex \+(?P<saving_throw_dex>\d+),? )?(Con \+(?P<saving_throw_con>\d+),? )?(Int [+-](?P<saving_throw_int>\d+),? )?(Wis(dom)? \+ ?(?P<saving_throw_wis>\d+),? )?(Cha \+(?P<saving_throw_cha>\d+),? )?"
-                   r"(Skills (?P<skills>(\w+ \+\d+( \(\+1d[46]\))?, )*\w+ \+\d+( \(\+1d[46]\))?) |Skills Any one skill )?"
+                   r"(Skills (?P<skills>(\w+ \+\d+( \(\+1d[46]\))?, )*\w+ \+\d+( \(\+1d[46]\)|\(see Three Heads\))?) |Skills Any one skill )?"
                    r"(Damage Vulnerabilities (?P<damage_vulnerabilities>[^A-Z]+) )?"
                    r"(Damage Resistances (?P<damage_resistances>[^A-Z]+) )?"
                    r"(Damage Immunities (?P<damage_immunities>[^A-Z]+) )?"
